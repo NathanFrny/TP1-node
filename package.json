@@ -1,14 +1,19 @@
 {
-  "name": "tp1",
+  "name": "tp2",
   "version": "1.0.0",
-  "description": "tp1",
+  "description": "tp2",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon ./src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "FOURNY Nathan",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "axios": "^1.6.7",
+    "express": "^4.18.2",
+    "jsonschema": "^1.4.1",
+    "mongodb": "^6.3.0",
+    "nodemon": "^3.0.3"
   }
 }

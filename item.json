@@ -1,0 +1,18 @@
+{
+    "id": "itemSchema",
+    "type": "object",
+    "properties": {
+      "id": { "type": "string" },
+      "titre": { "type": "string" },
+      "type": { "type": "string", "enum": ["film", "série"] },
+      "description": { "type": "string" },
+      "dateSortie": { "type": "string", "format": "date-time" },
+      "genres": {
+        "type": "array",
+        "items": { "type": "string" }
+      }
+    },
+    "required": ["id", "titre", "type"],
+    "additionalProperties": false
+  }
+  

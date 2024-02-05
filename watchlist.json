@@ -1,0 +1,29 @@
+{
+  "id": "watchlistSchema",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string" },
+    "userId": { "type": "string" },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "itemId": { "type": "string" },
+          "status": { "type": "string", "enum": ["A voir", "En cours", "Terminé", "Abandonné"] },
+          "dateAjout": { "type": "string", "format": "date-time" },
+          "notePersonnelle": { "type": "string" }
+        },
+        "required": ["itemId", "status"]
+      }
+    },
+    "estFavori": { "type": "boolean" },
+    "partages": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "description": { "type": "string" }
+  },
+  "required": ["id", "userId", "items"],
+  "additionalProperties": false
+}
