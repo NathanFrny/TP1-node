@@ -8,9 +8,23 @@ Nathan Fourny
 
 > Ouvrez vscode  
 > Ouvrez un terminal dans la root du projet  
-> Effectuez la commande suivante : "npm run start"  
+> Effectuez la commande suivante : "npm run start"
 
-## Fonction minimales
+## PORT
+
+> Le port par défaut du serveur express est 3000.  
+
+## Test API
+
+> Entrez l'url http://localhost:PORT/movie/:nomFilm  
+> Vous serez redirigez vers une page affichant le résultat json de la requête API  
+
+## Présentation Pug
+
+> Entre l'url http://localhost:PORT/presentation  
+> Vous pouvez testez les différents get disponible de l'API  
+
+## Fonctions minimales
 
 ### Ajouter un Utilisateur
 
@@ -63,7 +77,7 @@ Nathan Fourny
 > Indiquez le status de l'item (référez-vous aux status stocké dans le schéma de la watchlist)   
 
 
-## Fonction Supplémentaire
+## Fonctions Supplémentaires
 
 ## Supprimer une Watchlist
 
