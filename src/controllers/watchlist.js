@@ -1,6 +1,7 @@
 const { validateWatchlist } = require('../repositories/jsonSchema');
-const { insertOne, findOne, find, updateOne } = require('../services/db/crud');
+const { insertOne, findOne, find, updateOne, deleteOne } = require('../services/db/crud');
 
+// Permet d'ajouter une watchlist
 const addWatchlist = async (req, res, next) => {
     const watchlistData = req.body;
     const validation = validateWatchlist(watchlistData);
@@ -55,6 +56,7 @@ const getUserWatchlist = async (req, res, next) => {
     }
 };
 
+// Permet d'ajouter un item dans une watchlist
 const addItemInWatchlist = async (req, res, next) => {
     const watchlistId = req.params.watchlistId;
     const itemData = req.body;
@@ -74,11 +76,11 @@ const addItemInWatchlist = async (req, res, next) => {
     }
 }
 
+// Permet de mettre à jour le status d'un item dans une watchlist
 const updateItemStatus = async (req, res, next) => {
     const watchlistId = req.params.watchlistId;
     const itemId = req.params.itemId;
     const status = req.body.status;
-    console.log("Status:", status);
 
     try {
         const watchlist = await findOne('watchlists', { id: watchlistId });
@@ -95,4 +97,31 @@ const updateItemStatus = async (req, res, next) => {
     }
 }
 
-module.exports = { addWatchlist, getWatchlist, getUserWatchlist, addItemInWatchlist, updateItemStatus };
+// Permet de supprimer une watchlist
+const deleteWatchlist = async (req, res, next) => {
+    const watchlistId = req.params.watchlistId;
+
+    try {
+        const result = await deleteOne('watchlists', { id: watchlistId });
+        res.status(200).json(result);
+    } catch (error) {
+        console.error('Erreur lors de la suppression de la watchlist:', error);
+        res.status(500).send('Erreur lors de la suppression de la watchlist');
+    }
+}
+
+// Permet de mettre une watchlist en favoris
+const setWatchlistToFavorite = async (req, res, next) => {
+    const watchlistId = req.params.watchlistId;
+    const isFavorite = req.body.isFavorite;
+
+    try {
+        const result = await updateOne('watchlists', { id: watchlistId }, { $set: { 'estFavori': isFavorite } });
+        res.status(200).json(result);
+    } catch (error) {
+        console.error('Erreur lors de la mise en favoris de la watchlist:', error);
+        res.status(500).send('Erreur lors de la mise en favoris de la watchlist');
+    }
+}
+
+module.exports = { addWatchlist, getWatchlist, getUserWatchlist, addItemInWatchlist, updateItemStatus, deleteWatchlist, setWatchlistToFavorite };

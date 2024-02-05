@@ -1,5 +1,5 @@
 const { validateUser } = require('../repositories/jsonSchema');
-const { insertOne, findOne, find } = require('../services/db/crud');
+const { insertOne, findOne, find, updateOne } = require('../services/db/crud');
 
 const addUser = async (req, res, next) => {
     const userData = req.body;
@@ -50,4 +50,23 @@ const getAllUsers = async (req, res, next) => {
     }
 };
 
-module.exports = { addUser, getUser, getAllUsers };
+const updateUserPersonalInfo = async (req, res, next) => {
+    const userId = req.params.id;
+    const { infosPersonnelles } = req.body;
+
+    try {
+        const result = await updateOne('users', { id: userId }, { $set: { 'infosPersonnelles': infosPersonnelles } });
+
+        if (!result) {
+            return res.status(404).send('User not found');
+        }
+
+        res.status(200).json(result);
+    } catch (error) {
+        console.error('Erreur lors de la mise à jour des informations personnelles de l\'utilisateur:', error);
+        res.status(500).send('Erreur lors de la mise à jour des informations personnelles de l\'utilisateur');
+    }
+};
+
+
+module.exports = { addUser, getUser, getAllUsers, updateUserPersonalInfo };
