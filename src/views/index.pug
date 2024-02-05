@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    title Test API
+  body
+    h1 Test API Operations
+    h2 Users
+    ul
+      li
+        a(href='/user/get') Get All Users <br />
+        a(href='/user/get/1') Get User by ID: 1
+      // Ajoutez un lien dynamique pour un utilisateur spécifique si vous connaissez un ID à tester
+      // li
+      //   a(href='/user/get/123') Get User by ID: 123
+    h2 Items
+    ul
+      li
+        a(href='/item/get/1') Get Item by ID: 1
+      // Ajoutez un lien dynamique pour un item spécifique si vous avez un ID
+      // li
+      //   a(href='/item/get/456') Get Item by ID: 456
+    h2 Watchlists
+    ul
+      li
+        a(href='/watchlist/get/1') Get Watchlist by ID: 1 <br />
+        a(href='/watchlist/get/user/1') Get Watchlists by User ID: 1
+      // Ajoutez un lien pour récupérer une watchlist par ID d'utilisateur ou watchlist spécifique
+      // li
+        // a(href='/watchlist/get/user/789') Get Watchlists by User ID: 789
+      // li
+        // a(href='/watchlist/get/1011') Get Watchlist by ID: 1011
+    h2 Post 
+    ul 
+      li 
+        a Pour tester les POST, Veuillez-vous référer au READ ME du projet Git.

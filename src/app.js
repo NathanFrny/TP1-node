@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const { connectToDb } = require('./services/db/connection');
 const { fetchMovieData } = require('./repositories/omdbApi');
 const userRoutes = require('./routes/userRoutes.js');
@@ -10,6 +11,9 @@ const app = express();
 const port = 3000;
 
 app.use(express.json());
+
+app.set('view engine', 'pug');
+app.set('views', path.join(__dirname, 'views'));
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
@@ -24,6 +28,11 @@ app.get('/movie', async (req, res) => {
     res.status(500).send('Erreur lors de la récupération des données du film');
   }
 });
+
+app.get('/presentation', (req, res) => {
+  res.render('index', { title: 'Test API' });
+});
+
 
 app.use('/user', userRoutes);
 

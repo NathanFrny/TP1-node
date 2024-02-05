@@ -74,4 +74,25 @@ const addItemInWatchlist = async (req, res, next) => {
     }
 }
 
-module.exports = { addWatchlist, getWatchlist, getUserWatchlist, addItemInWatchlist };
+const updateItemStatus = async (req, res, next) => {
+    const watchlistId = req.params.watchlistId;
+    const itemId = req.params.itemId;
+    const status = req.body.status;
+    console.log("Status:", status);
+
+    try {
+        const watchlist = await findOne('watchlists', { id: watchlistId });
+
+        if (!watchlist) {
+            return res.status(404).send('Watchlist not found');
+        }
+
+        const result = await updateOne('watchlists', { id: watchlistId, 'items.itemId': itemId }, { $set: { 'items.$.status': status } });
+        res.status(200).json(result);
+    } catch (error) {
+        console.error('Erreur lors de la mise à jour du status de l\'item dans la watchlist:', error);
+        res.status(500).send('Erreur lors de la mise à jour du status de l\'item dans la watchlist');
+    }
+}
+
+module.exports = { addWatchlist, getWatchlist, getUserWatchlist, addItemInWatchlist, updateItemStatus };
