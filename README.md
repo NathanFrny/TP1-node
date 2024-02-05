@@ -53,9 +53,9 @@ Nathan Fourny
 
 ### Modifiez le status d'un Item dans une Watchlist
 
-> Utilisez Postman
-> Utilisez l'url http://localhost:PORT/watchlist/updateItemStatus/:watchlistId/:itemID
-> Indiquez le status de l'item (référez-vous aux status stocké dans le schéma de la watchlist)
+> Utilisez Postman  
+> Utilisez l'url http://localhost:PORT/watchlist/updateItemStatus/:watchlistId/:itemID  
+> Indiquez le status de l'item (référez-vous aux status stocké dans le schéma de la watchlist)  
 
 
 ## Fonction Supplémentaire
