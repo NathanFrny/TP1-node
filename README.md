@@ -70,3 +70,10 @@ Nathan Fourny
 > Utilisez Postman  
 > Sélectionnez la requête http "DELETE"  
 > Utilisez l'url http://localhost:PORT/watchlist/delete/:watchlistId  
+
+## Modifier les informations personnelles d'un utilisateur
+
+> Utilisez Postman  
+> Sélectionnez la requête http "POST"  
+> Utilisez l'url http://localhost:PORT/user/updatePersonalInfo/:userID  
+> Entrez les informations personnelles dans un json (référez-vous au schéma dans jsonSchema.js)  
