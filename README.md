@@ -80,7 +80,7 @@ Nathan Fourny
 
 ## Mettre une Watchlist en favori
 
-> Utilisez Postman
-> Sélectionnez la requête http "POST"
-> Utilisez l'url http://localhost:PORT/watchlist/setFavorite/:watchlistId
-> Entre la valeur de "isFavorite" dans un json (true ou false)
+> Utilisez Postman  
+> Sélectionnez la requête http "POST"  
+> Utilisez l'url http://localhost:PORT/watchlist/setFavorite/:watchlistId  
+> Entre la valeur de "isFavorite" dans un json (true ou false)  
