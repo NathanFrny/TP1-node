@@ -10,6 +10,8 @@ Nathan Fourny
 > Ouvrez un terminal dans la root du projet  
 > Effectuez la commande suivante : "npm run start"  
 
+## Fonction minimales
+
 ### Ajouter un Utilisateur
 
 > Utilisez Postman  
@@ -48,3 +50,13 @@ Nathan Fourny
 > Utilisez Postman
 > Utilisez l'url http://localhost:PORT/watchlist/addItem/:id (id de la watchlist)
 > Indiquez les éléments d'item à rajouter dans la watchlist (se référer à la section item dans le schéma de la watchlist -> Attention à bien créer l'item avant de l'ajouter dans la watchlist)
+
+### Modifiez le status d'un Item dans une Watchlist
+
+> Utilisez Postman
+> Utilisez l'url http://localhost:PORT/watchlist/updateItemStatus/:watchlistId/:itemID
+> Indiquez le status de l'item (référez-vous aux status stocké dans le schéma de la watchlist)
+
+
+## Fonction Supplémentaire
+
